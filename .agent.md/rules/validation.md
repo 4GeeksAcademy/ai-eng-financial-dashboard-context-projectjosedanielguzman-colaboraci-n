@@ -4,7 +4,7 @@
 
 Las reglas se han separado por el limite de cambio que controlan: API y datos, contrato de UI, pruebas, y operacion. Cada regla contiene un hecho verificable del repositorio y una validacion concreta; no sustituye las pruebas funcionales de cambios futuros.
 
-La ubicacion `.agent/rules` responde a este cambio. Es distinta de `.agents/rules`, la ruta indicada por `AGENTS.md`; cualquier automatizacion que solo lea la ruta historica debe actualizarse antes de depender de estas reglas.
+La ubicacion `.agent.md/rules` agrupa las reglas con las notas de agentes y `AGENTS.md` se actualizo para que futuros agentes descubran esta ruta. Cualquier automatizacion externa que solo lea la ruta historica `.agents/rules` debe actualizarse antes de depender de estas reglas.
 
 ## Tareas ejecutadas por regla
 
@@ -23,7 +23,7 @@ La ubicacion `.agent/rules` responde a este cambio. Es distinta de `.agents/rule
 | Docker frente a host | `docker compose config`. | Superada: Compose define `backend` y `frontend`, compatibles con el destino del proxy. |
 | Imagen de produccion | Revision de ambos Dockerfiles. | Confirmado: usan Vite dev server, Debugpy y `--reload`; la regla evita emplearlos como configuracion de produccion. |
 | CORS por entorno | Revision de `backend/app/main.py`. | Confirmado: CORS permite `*` con credenciales; la regla conserva el cambio requerido antes de exponer el servicio. |
-| Descubrimiento de reglas | Actualizacion de `AGENTS.md` y `find .agent/rules -type f`. | Superada: `AGENTS.md` declara `.agent/rules` y los cinco documentos son localizables. |
+| Descubrimiento de reglas | Actualizacion de `AGENTS.md` y `find .agent.md/rules -type f`. | Superada: `AGENTS.md` declara `.agent.md/rules` y los cinco documentos son localizables. |
 | Higiene de commits | `git diff --check`. | Superada: sin errores de espacio antes de confirmar. |
 
 Las dependencias no estan instaladas en el host (`fastapi` y `vitest` faltaban), pero las validaciones de aplicacion se completaron en Docker Compose, que es el entorno de ejecucion documentado. El build frontend emitio la advertencia existente de un chunk de 584 kB; no bloquea esta documentacion, pero debe revisarse si crece el bundle.

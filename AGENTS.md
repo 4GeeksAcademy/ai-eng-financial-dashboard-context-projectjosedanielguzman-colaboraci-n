@@ -3,10 +3,10 @@
 Agents working on this project **must**:
 
 - Look for **work instructions and rules** in the directory:  
-  `./.agent/rules`
+  `./.agent.md/rules`
 
 - Look for available **agent skills** in the directory:  
-  `./.agent/skills`
+  `./.agents/skills`
 
 - Look for the **project memory bank** in:  
   `./memory-bank`  

@@ -22,9 +22,9 @@ El entorno Compose resuelve el hostname `backend`, los Dockerfiles inician herra
    - Hecho: `backend/app/main.py` usa `allow_origins=["*"]` junto con `allow_credentials=True`.
    - Validacion: una prueba de configuracion debe comprobar los origenes permitidos para el entorno de despliegue.
 
-4. Los documentos de trabajo de agentes deben vivir en `.agent/rules` para este repositorio y declarar la diferencia respecto a la ruta historica de `AGENTS.md`.
-   - Hecho: `AGENTS.md` menciona `.agents/rules`, mientras esta implementacion se solicita en `.agent/rules`.
-   - Validacion: `find .agent/rules -type f` debe listar las reglas y cada archivo debe contener alcance, justificacion, guia y hechos del repositorio.
+4. Los documentos de trabajo de agentes deben vivir en `.agent.md/rules` para este repositorio y declarar la diferencia respecto a la ruta historica de `AGENTS.md`.
+   - Hecho: `AGENTS.md` menciona `.agent.md/rules`, mientras la convencion anterior usaba `.agents/rules`.
+   - Validacion: `find .agent.md/rules -type f` debe listar las reglas y cada archivo debe contener alcance, justificacion, guia y hechos del repositorio.
 
 5. Todo commit de documentacion o mantenimiento debe registrar que validaciones se ejecutaron y cuales solo se recomiendan.
    - Hecho: `.agent.md/verification.md` marca inspecciones realizadas y deja `pytest`, lint, test y build como comandos recomendados.
